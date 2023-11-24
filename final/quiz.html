@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html>
+<head>
+        <meta charset="utf-8">
+        <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+        <title>Online eBook Store</title>
+      
+        <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+        <link rel="stylesheet" href="css/bootstrap.css">
+        <link rel="stylesheet" href="css/font-awesome.css">
+        <link href="img/ebook.png" rel="icon">
+        <link href="style.css" rel="stylesheet">
+</head>
+
+<body class="bg-light">
+  <nav class="navbar navbar-expand-lg navbar-light shadow-sm">
+    <div class="container-lg">
+        <a class="navbar-brand fw-bold fs-4 darkorange" href="home.html">Bookly</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+            aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation" id="navbarToggler">
+            <i class="fas fa-bars"></i>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item"><a class="nav-link" href="home.html">Home</a></li>
+                <li class="nav-item"><a class="nav-link" href="catalogue.html">Catalogue</a></li>
+                <li class="nav-item"><a class="nav-link" href="contacts.html">Contacts</a></li>
+                <li class="nav-item"><a class="nav-link" href="quiz.html">Quiz</a></li>
+            </ul>
+            <audio id="clickSound">
+              <source src="sounds/ping.mp3" type="audio/mpeg">
+            </audio>            
+            <div class="search-container">
+              <input type="text" onkeypress="myFunction()" class="input-style" placeholder="Search">
+              <i class="fas fa-search" id="search-icon" onclick="playClickSound()"></i>
+            </div>
+        </div>
+    </div>
+</nav>
+
+<script>
+  function playClickSound() {
+    var audio = document.getElementById("clickSound");
+    audio.play();
+  }
+</script>
+
+<script>
+function myFunction() {
+  alert("You pressed a key inside the input field");
+}
+</script>
+
+<div class="cta-banner">
+  <img src="img/Group 5.png">
+</div>
+
+<div class="app mb-5 mt-5">
+    <h2 class="fw-bold">Kazakh Literature Quiz</h2>
+    <div class="quiz">
+        <h4 id="question">Questions there</h4>
+        <div id="answer-btn">
+            <button class="qbtn">Answer 1</button>
+            <button class="qbtn">Answer 2</button>
+            <button class="qbtn">Answer 3</button>
+            <button class="qbtn">Answer 4</button>
+        </div>
+        <button id="next-btn">Next</button>
+    </div>
+</div>
+
+<section class="newsletter">
+    <div class="parallax">
+      <form action="">
+        <h3 class="fw-bold">Subscribe for the latest updates</h3>
+        <input type="email" id="emailInput" placeholder="Enter your email" class="box">
+        <button type="button" id="subscribeBtn" class="btn btn-subscribe ms-2 mb-1 btn-lg">Subscribe</button>
+      </form>  
+    </div>
+    </section>
+    
+    <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      const subscribeBtn = document.getElementById('subscribeBtn');
+    
+      subscribeBtn.addEventListener('click', function () {
+        const emailInput = document.getElementById('emailInput').value;
+    
+        if (emailInput.trim() !== '') {
+          alert('You have successfully subscribed!');
+          document.getElementById('emailInput').value = '';
+        } else {
+          alert('Please enter a valid email address.');
+        }
+      });
+    });
+    </script>
+    
+  <script>
+    const questions=[
+        {
+            question: "Who is considered the father of modern Kazakh literature?",
+            answers:[
+                {text: "Abai Kunanbayev", correct: true},
+                {text: "Mukhtar Auezov", correct: false},
+                {text: "Olzhas Suleimenov", correct: false},
+                {text: "Chinghiz Aitmatov", correct: false},
+            ]
+        },
+        {
+            question: "Which famous Kazakh novelist wrote 'Abai Zholy', a novel about the life and philosophy of Abai Kunanbayev?",
+            answers:[
+                {text: "Olzhas Suleimenov", correct: false},
+                {text: "Ilyas Yesenberlin", correct: false},
+                {text: "Mukhtar Auezov", correct: true},
+                {text: "Dulat Issabekov", correct: false},
+            ]
+        },
+        {
+            question: "What is the title of the first novel written in the Kazakh language?",
+            answers:[
+                {text: "Kozy-Korpesh and Bayan Sulu", correct: false},
+                {text: "Abai", correct: false},
+                {text: "Amanzhol", correct: false},
+                {text: "Abai Zholy", correct: true},
+            ]
+        },
+        {
+            question: "What is the title of the famous work by Abai Kunanbayev, which is a collection of philosophical and poetic thoughts on morality?",
+            answers:[
+                {text: "Abai's Legacy", correct: false},
+                {text: "The Path of Abai", correct: false},
+                {text: "Words of Edification", correct: true},
+                {text: "Kozy-Korpesh and Bayan Sulu", correct: false},
+            ]
+        }
+    ]
+    const questionElement=document.getElementById("question");
+    const answerButton=document.getElementById("answer-btn");
+    const nextButton=document.getElementById("next-btn");
+
+    let currentQuestionIndex=0;
+    let score=0;
+
+    function startQuiz(){
+        currentQuestionIndex=0;
+        score=0;
+        nextButton.innerHTML="Next";
+        showQuestion();
+    }
+
+    function showQuestion(){
+      resetState();
+        let currentQuestion=questions[currentQuestionIndex];
+        let questionNo=currentQuestionIndex+1;
+        questionElement.innerHTML=questionNo+". "+currentQuestion.
+        question;
+
+        currentQuestion.answers.forEach(answer => {
+            const button = document.createElement("button");
+            button.innerHTML=answer.text;
+            button.classList.add("qbtn");
+            answerButton.appendChild(button);
+            if(answer.correct){
+              button.dataset.correct=answer.correct;
+            }
+            button.addEventListener("click", selectAnswer);
+        })
+    }
+    function resetState(){
+      nextButton.style.display="none";
+      while(answerButton.firstChild){
+        answerButton.removeChild(answerButton.firstChild);
+      }
+    }
+
+    function selectAnswer(e){
+      const selectedBtn=e.target;
+      const isCorrect=selectedBtn.dataset.correct === "true";
+      if(isCorrect){
+        selectedBtn.classList.add("correct");
+        score++;
+      } else{
+        selectedBtn.classList.add("incorrect");
+      }
+      Array.from(answerButton.children).forEach(button =>{
+        if(button.dataset.correct === "true"){
+          button.classList.add("correct");
+        }
+        button.disabled = true;
+      });
+      nextButton.style.display ="block";
+    }
+
+    function showScore(){
+      resetState();
+      questionElement.innerHTML = `You scored ${score} out of ${questions.length}!`;
+      nextButton.innerHTML="Play Again";
+      nextButton.style.display="block";
+    }
+    // function handleNextButton(){
+    //   currentQuestionIndex++;
+    //   if(currentQuestionIndex < questions.length){
+    //     showQuestion();
+    //   } else{
+    //     showScore();
+    //   }
+    // }
+    // nextButton.addEventListener("click", ()=>{
+    //   if(currentQuestionIndex < questions.length){
+    //     handleNextButton();
+    //   }
+    //   else{
+    //     startQuiz();
+    //   }
+    // });
+
+    // startQuiz();
+    function handleNextButton() {
+    currentQuestionIndex++;
+    if (currentQuestionIndex < questions.length) {
+      return new Promise(resolve => {
+        setTimeout(() => {
+          showQuestion();
+          resolve();
+        }, 1000);
+      });
+    } else {
+      showScore();
+    }
+  }
+
+  async function handleNextButtonClick() {
+    if (currentQuestionIndex < questions.length) {
+      await handleNextButton();
+    } else {
+      startQuiz();
+    }
+  }
+
+  nextButton.addEventListener("click", handleNextButtonClick);
+
+  startQuiz();
+  </script>
+  
+  <section class="footer">
+    <div class="box-container-footer mt-2">
+      <div class="box-footer">
+        <h3 class="fw-bold">Locations</h3>
+        <a href="#"><i class="fas fa-map-marker-alt me-2"></i>Almaty</a>
+        <a href="#"><i class="fas fa-map-marker-alt me-2"></i>Astana</a>
+        <a href="#"><i class="fas fa-map-marker-alt me-2"></i>Pavlodar</a>
+      </div>
+      <div class="box-footer">
+        <h3 class="fw-bold">Quick Links</h3>
+        <a href="home.html"><i class="fas fa-arrow-right me-2"></i>Home</a>
+        <a href="catalogue.html"><i class="fas fa-arrow-right me-2"></i>Catalogue</a>
+      </div> 
+      <div class="box-footer">
+        <h3 class="fw-bold">Extra Links</h3>
+        <a href="contacts.html"><i class="fas fa-arrow-right me-2"></i>Contacts</a>
+        <a href="quiz.html"><i class="fas fa-arrow-right me-2"></i>Quiz</a>
+      </div>
+      <div class="box-footer">
+        <h3 class="fw-bold">Contacts</h3>
+        <a href="#"><i class="fas fa-phone me-2"></i>+7 (700) 668-84-72</a>
+        <a href="#"><i class="fas fa-envelope me-2"></i>sherdiin@gmail.com</a>
+        <img src="img/Group 1.png" class="map" alt="">
+      </div>
+    </div>
+    <div class="share">
+      <a href="#" class="fa-brands fa-facebook"></a>
+      <a href="#" class="fab fa-instagram"></a>
+      <a href="#" class="fa-brands fa-linkedin"></a>
+    </div>
+    <div class="credit">Created by <span>Dinara Sheriyazdan</div>
+  </section>
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"></script>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+  </body>
+  </html>
+  

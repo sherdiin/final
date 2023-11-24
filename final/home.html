@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html>
+<head>
+        <meta charset="utf-8">
+        <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+        <title>Online eBook Store</title>
+      
+        <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+        <link rel="stylesheet" href="css/bootstrap.css">
+        <link rel="stylesheet" href="css/font-awesome.css">
+        <link href="img/ebook.png" rel="icon">
+        <link href="style.css" rel="stylesheet">
+</head>
+
+<body class="bg-light">
+  <nav class="navbar navbar-expand-lg navbar-light shadow-sm">
+    <div class="container-lg">
+        <a class="navbar-brand fw-bold fs-4 darkorange" href="home.html">Bookly</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+            aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation" id="navbarToggler">
+            <i class="fas fa-bars"></i>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item"><a class="nav-link" href="home.html">Home</a></li>
+                <li class="nav-item"><a class="nav-link" href="catalogue.html">Catalogue</a></li>
+                <li class="nav-item"><a class="nav-link" href="contacts.html">Contacts</a></li>
+                <li class="nav-item"><a class="nav-link" href="quiz.html">Quiz</a></li>
+            </ul>
+            <div class="search-container">
+              <input type="text" onkeypress="myFunction()" class="input-style" placeholder="Search">
+              <i class="fas fa-search" id="search-icon"></i>
+            </div>
+        </div>
+    </div>
+</nav>
+
+<script>
+function myFunction() {
+  alert("You pressed a key inside the input field");
+}
+</script>
+
+<!--home page-->
+  <section class="home py-4" id="home">
+    <div class="container-lg">
+      <div class="row min-vh-100 align-items-center align-content-center">
+       <div class = "col-md-6 mt-5 mt-md-0">
+        <div class="imgbox mt-5">
+          <div id="carouselExample" class="carousel slide">
+            <div class="carousel-inner">
+              <div class="carousel-item active">
+                <img src="img/2.png" class="d-block w-100" alt="...">
+              </div>
+              <div class="carousel-item">
+                <img src="img/1.png" class="d-block w-100" alt="...">
+              </div>
+              <div class="carousel-item">
+                <img src="img/3.png" class="d-block w-100" alt="...">
+              </div>
+              <div class="carousel-item">
+                <img src="img/4.png" class="d-block w-100" alt="...">
+              </div>
+              <div class="carousel-item">
+                <img src="img/5.png" class="d-block w-100" alt="...">
+              </div>
+            </div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
+              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+              <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#carouselExample" data-bs-slide="next">
+              <span class="carousel-control-next-icon" aria-hidden="true"></span>
+              <span class="visually-hidden">Next</span>
+            </button>
+          </div>
+        </div>
+       </div>
+        <div class="col-md-6 mt-5 mt-md-0 order-md-first">
+          <div class="home-text">
+            <h1 class="text-uppercase fw-bold darkorange">UP TO 70% OFF</h1>
+            <h2 class="fs-5 midorange">Embark on a literary adventure at our ebook store, where captivating stories await. Uncover a world of tales and enjoy an exclusive discount – your passport to a delightful reading experience!</h2>
+            <button type="button" class="btn btn-org mt-4 btn-lg" id="shopNowBtn">Shop Now</button>
+          </div>
+        </div>
+        </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+<script>
+  document.getElementById("shopNowBtn").addEventListener("click", function() {
+    window.location.href = "catalogue.html";
+  });
+  
+  var shopNowBtn = document.getElementById('shopNowBtn');
+
+  shopNowBtn.addEventListener('mouseover', function() {
+    this.style.transform = 'scale(1.2)';
+  });
+  shopNowBtn.addEventListener('mouseout', function() {
+    this.style.transform = 'scale(1)';
+  });
+</script>
+
+<!--service-->
+<div class="container-lg">
+  <div class="row text-center mb-4">
+    <div class="col-md-6 col-lg-3 mb-4">
+      <div class="card">
+        <div class="card-body d-flex align-items-center">
+          <div class="icon my-3 me-2 ms-2 fs-2 midorange">
+            <i class="fa-solid fa-truck-fast"></i>
+          </div>
+          <div class="text-start ms-3 mt-2">
+            <h3 class="fs-6 py-1 midorange mb-1">Free Shipping</h3>
+            <p class="text-muted">Order Over $100</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-6 col-lg-3 mb-4">
+      <div class="card">
+        <div class="card-body d-flex align-items-center">
+          <div class="icon my-3 me-2 ms-2 fs-2 midorange">
+            <i class="fa-solid fa-shield-halved"></i>
+          </div>
+          <div class="text-start ms-3 mt-2">
+            <h3 class="fs-6 py-1 midorange mb-1">Secure Payment</h3>
+            <p class="text-muted">100% Security</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-6 col-lg-3 mb-4">
+      <div class="card">
+        <div class="card-body d-flex align-items-center">
+          <div class="icon my-3 me-2 ms-2 fs-2 midorange">
+            <i class="fa-solid fa-arrow-rotate-left"></i>
+          </div>
+          <div class="text-start ms-3 mt-2">
+            <h3 class="fs-6 py-1 midorange mb-1">Easy Returns</h3>
+            <p class="text-muted">in 10 Days</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-6 col-lg-3 mb-4">
+      <div class="card">
+        <div class="card-body d-flex align-items-center">
+          <div class="icon my-3 me-2 ms-2 fs-2 midorange">
+            <i class="fa-solid fa-circle-info"></i>
+          </div>
+          <div class="text-start ms-3 mt-2">
+            <h3 class="fs-6 py-1 midorange mb-1">24/7 Support</h3>
+            <p class="text-muted">Call Us Anytime</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+<!--about us-->
+<div class="mt-4 p-5 bg-orange text-white">
+    <div class="row content">
+        <div class="col-lg-6 d-flex align-items-center">
+          <img src="img/Ebook-bro.svg" class="img-fluid"  alt="">
+        </div>
+      <div class="col-lg-6 pt-4 pt-lg-0">
+        <h2 class="fw-bold text-white fade-in-section">About Us</h2>
+        <p class="fade-in-section">
+          Welcome to Bookly, where the magic of storytelling comes to life. Our journey began with a simple yet profound belief: that everyone deserves access to captivating stories that transport, inspire, and entertain. <br><br> At Bookly, we curate a diverse collection of ebooks that cater to every taste. Whether you're a fan of heartwarming romance, thrilling mysteries, mind-bending science fiction, or insightful non-fiction, we have something special just for you.
+        </p>
+        <audio id="audioElement">
+          <source src="sounds/click.mp3" type="audio/mpeg">
+        </audio>
+        <button id="myBtn" class="btn-custom fade-in-section">Learn More</button>
+        <div id="myModal" class="modal">
+        <div class="modal-content">
+        <span class="close">&times;</span>
+        <p>We take pride in providing a platform for both emerging and established authors, fostering a community where literary voices can thrive. Our commitment to quality ensures that each ebook in our collection has been carefully selected to offer a truly enriching reading experience. <br><br> Bookly is more than just a place to buy ebooks. It's a space where book lovers connect, and embark on literary adventures. </p>
+      </div>
+    </div>  
+    </div>
+    </div>
+  </div>
+  <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+  <script>
+      $(document).ready(function () {
+          function isScrolledIntoView(element) {
+              var docViewTop = $(window).scrollTop();
+              var docViewBottom = docViewTop + $(window).height();
+              var elemTop = $(element).offset().top;
+              var elemBottom = elemTop + $(element).height();
+              return elemBottom <= docViewBottom && elemTop >= docViewTop;
+          }
+  
+          if (isScrolledIntoView('.fade-in-section')) {
+              $('.fade-in-section').addClass('fade-in');
+          }
+
+          $(window).scroll(function () {
+              if (isScrolledIntoView('.fade-in-section')) {
+                  $('.fade-in-section').addClass('fade-in');
+              }
+          });
+      });
+  </script>
+  
+<script>
+  var modal = document.getElementById("myModal");
+  var btn = document.getElementById("myBtn");
+  var span = document.getElementsByClassName("close")[0];
+  var audioElement = document.getElementById("audioElement");
+  
+  btn.onclick = function() {
+    modal.style.display = "block";
+    audioElement.play(); 
+  }
+  
+  span.onclick = function() {
+    modal.style.display = "none";
+  }
+  
+  window.onclick = function(event) {
+    if (event.target == modal) {
+      modal.style.display = "none";
+    }
+  }
+</script>
+
+<section class="newsletter">
+<div class="parallax">
+  <form action="">
+    <h3 class="fw-bold">Subscribe for the latest updates</h3>
+    <input type="email" id="emailInput" placeholder="Enter your email" class="box">
+    <button type="button" id="subscribeBtn" class="btn btn-subscribe ms-2 mb-1 btn-lg">Subscribe</button>
+  </form>  
+</div>
+</section>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  const cards = document.querySelectorAll('.card');
+
+  cards.forEach(card => {
+    card.addEventListener('mouseenter', function() {
+      anime({
+        targets: card,
+        translateY: -18,
+        duration: 300,
+        easing: 'easeOutQuad'
+      });
+    });
+
+    card.addEventListener('mouseleave', function() {
+      anime({
+        targets: card,
+        translateY: 0,
+        duration: 300,
+        easing: 'easeOutQuad'
+      });
+    });
+  });
+});
+
+document.addEventListener('DOMContentLoaded', function () {
+  const subscribeBtn = document.getElementById('subscribeBtn');
+
+  subscribeBtn.addEventListener('click', function () {
+    const emailInput = document.getElementById('emailInput').value;
+
+    if (emailInput.trim() !== '') {
+      alert('You have successfully subscribed!');
+      document.getElementById('emailInput').value = '';
+    } else {
+      alert('Please enter a valid email address.');
+    }
+  });
+});
+</script>
+
+
+
+<!--footer-->
+<section class="footer">
+  <div class="box-container-footer mt-2">
+    <div class="box-footer">
+      <h3 class="fw-bold">Locations</h3>
+      <a href="#"><i class="fas fa-map-marker-alt me-2"></i>Almaty</a>
+      <a href="#"><i class="fas fa-map-marker-alt me-2"></i>Astana</a>
+      <a href="#"><i class="fas fa-map-marker-alt me-2"></i>Pavlodar</a>
+    </div>
+    <div class="box-footer">
+      <h3 class="fw-bold">Quick Links</h3>
+      <a href="home.html"><i class="fas fa-arrow-right me-2"></i>Home</a>
+      <a href="catalogue.html"><i class="fas fa-arrow-right me-2"></i>Catalogue</a>
+    </div> 
+    <div class="box-footer">
+      <h3 class="fw-bold">Extra Links</h3>
+      <a href="contacts.html"><i class="fas fa-arrow-right me-2"></i>Contacts</a>
+      <a href="quiz.html"><i class="fas fa-arrow-right me-2"></i>Quiz</a>
+    </div>
+    <div class="box-footer">
+      <h3 class="fw-bold">Contacts</h3>
+      <a href="#"><i class="fas fa-phone me-2"></i>+7 (700) 668-84-72</a>
+      <a href="#"><i class="fas fa-envelope me-2"></i>sherdiin@gmail.com</a>
+      <img src="img/Group 1.png" class="map" alt="">
+    </div>
+  </div>
+  <div class="share">
+    <a href="#" class="fa-brands fa-facebook"></a>
+    <a href="#" class="fab fa-instagram"></a>
+    <a href="#" class="fa-brands fa-linkedin"></a>
+  </div>
+  <div class="credit">Created by <span>Dinara Sheriyazdan</div>
+</section>
+
+<div class="loader-container">
+  <div class="spinner-border text-warning">
+  </div>
+</div>
+
+<script>
+  const loaderDuration = 2000; 
+
+  function switchToHome() {
+    const loaderContainer = document.querySelector('.loader-container');
+    loaderContainer.style.display = 'none';
+
+    const loaderImg = document.getElementById('loader');
+    loaderImg.parentNode.removeChild(loaderImg);
+
+    window.location.href = 'home.html';
+  }
+  
+  setTimeout(switchToHome, loaderDuration);
+</script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+</body>
+</html>
+
+
+
+ 
+
